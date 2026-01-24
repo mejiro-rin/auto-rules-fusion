@@ -9,6 +9,8 @@
 
 > 一个简单、支持自定义的 **广告屏蔽 + 规则融合** 工具
 
+自动拉取订阅配置，解析分类其中的规则后进行再次构建
+
 ✨ **多源拉取 + 本地自定义 → 去重融合 → 一键生成 Clash / Shadowrocket 配置！**
 
 ---
@@ -40,18 +42,22 @@ auto-rule-fusion/
 
 ## ⚡ 快速上手
 
-1. 如果你想使用推荐的其他作者的配置文件，进入 `remote_config/` 文件夹，选择你想用的客户端平台并下载配置文件：
-   - `sr/` → Shadowrocket 配置文件
-   - `clash/` → Clash 配置文件
+直接订阅作者的配置文件，已融合规则，每日10点自动更新。
+> 🚀 Shadowrocket
+````text
+https://raw.githubusercontent.com/mejiro-rin/auto-rules-fusion/refs/heads/generated/SR_config.conf
+````
+> 😼 Clash 配置文件
+````text
+功能正在开发中....
+````
 
-   如果你有喜欢的配置文件，可以到`src/lib/remote_config.txt`中添加 URL，程序运行时会自动拉取更新。
-2. 运行 `src/main.py`，生成经过解析、融合的配置文件，输出在 `dist/` 目录下
+- 如果你想添加整合其他作者的规则，或者添加自定义规则，请根据下文指导拉取到本地后使用
 
-> 💡 **Clash 配置文件还在完善中，建议优先使用 Shadowrocket 系列。**
 
 ---
 
-## 👨‍💻 开发者 / 想自己更新规则的用户指南
+## 👨‍💻 开发者 / 个性化使用指南
 
 ### 环境准备
 
@@ -66,14 +72,16 @@ pip install -r requirements.txt
 只需一步，程序会自动更新拉取远程规则，合并本地规则，生成最终配置文件：
 
 ```bash
+cd src
 python src/main.py
 ```
+- 请在`src/`目录下运行主程序，否则不确定会出现什么路径错误bug（
 
-生成的配置文件会出现在 `dist/` 目录下。
+产出的配置文件会生成在根目录的 `dist/` 目录下。
 
 ---
 
-### ✏️ 自定义规则（强烈推荐）
+### ✏️ 自定义规则
 
 想加/删/改规则，直接编辑下列文件：
 
@@ -88,14 +96,18 @@ domain.com
 www.example.com
 google.com
 ```
+### 🛒 添加其它作者的配置文件参与整合
 
-> 修改后重新运行上面 py 文件即可生效！
+在文档`src/custom/remote_config.txt`内，根据使用平台分类，添加配置文件下载或订阅链接。
+
+
+> 修改后，重新运行 main.py 文件即可生效！
 
 ---
 
 ### 💡 小提示
 
-- 生成的中间文件都在 `src/lib/`，一般只用来 debug，不建议直接修改
+- 生成的中间文件都在 `src/lib/`，是解析分类后生成配置的规则与模板，一般用于 debug
 - 当前主力输出是 Shadowrocket，其他客户端格式还在逐步补充
 - 有问题或想加新模板，欢迎 issue 或 PR
 
@@ -103,7 +115,7 @@ google.com
 
 ---
 
-### 🗂️ 详细文件树
+### 🗂️ 完整文件树
 
 ```text
 auto-rule-fusion/
@@ -118,7 +130,7 @@ auto-rule-fusion/
 │   │   ├── manual_proxy.txt    # 自定义代理规则
 │   │   ├── manual_reject.txt   # 自定义拒绝规则
 │   │   └── remote_config.txt   # 远程配置文件地址列表
-│   ├── lib/                # 程序运行后分类生成的中间文件和资源
+│   ├── lib/                # 程序生成的中间文件和资源
 │   │   ├── direct.txt          # 生成的直连规则
 │   │   ├── proxy.txt           # 生成的代理规则
 │   │   ├── reject.txt          # 生成的拒绝规则
@@ -126,7 +138,7 @@ auto-rule-fusion/
 │   │   └── sr_template.conf    # Shadowrocket 配置文件模板
 │   └── utils/              # 工具模块
 │       ├── storage/            # 文件读写相关
-│       │   ├── cache_manager.py    # 缓存管理
+│       │   ├── cache_manager.py    # 缓存管理（测试期间的产物，目前用不上）
 │       │   └── text_manager.py     # 文档管理
 │       ├── tool/               # 工具函数
 │       │   ├── check.py            # 检查函数
@@ -134,7 +146,7 @@ auto-rule-fusion/
 │       │   └── scan_file.py        # 扫描文件函数
 │       ├── builder.py          # 最终配置文件生成
 │       ├── config_proc.py      # 配置文件解析
-│       ├── get_config.py       # 网络配置文件获取
+│       ├── get_config.py       # 远程仓库文件拉取
 │       └── lib_manager.py      # lib 目录管理
 ├── README.md           # 项目说明文档
 └── requirements.txt    # Python依赖
