@@ -25,7 +25,8 @@ jobs:
 
     - name: 生成规则文件
       run: |
-        python src/main.py
+        cd src
+        python main.py
 
     - name: 部署到 generated 分支（覆盖式）
       uses: peaceiris/actions-gh-pages@v4
