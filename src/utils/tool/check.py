@@ -67,9 +67,9 @@ def bring_policy_rule (line: str) -> bool:
 
 if __name__ == "__main__":
     # 检查文件夹
-    count = check_folder_file("..\\..\\..\\remote_config\\sr")
+    count = check_folder_file("../../../remote_config/sr")
     print(f"文件数量: {count}")
 
     # 检查文件
-    exists = check_file("..\\tool\\check.py")
+    exists = check_file("../tool/check.py")
     print(f"文件存在: {exists}")

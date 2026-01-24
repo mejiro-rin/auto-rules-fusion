@@ -9,11 +9,11 @@ class LibManager:
     规则库文件管理器
     负责规则库文件的读写操作
     """
-    def __init__(self, lib_path: str = ".\\lib"):
+    def __init__(self, lib_path: str = "./lib"):
         self.lib_path = lib_path
-        self.proxy_file_path = lib_path + "\\proxy.txt"
-        self.direct_file_path = lib_path + "\\direct.txt"
-        self.reject_file_path = lib_path + "\\reject.txt"
+        self.proxy_file_path = lib_path + "/proxy.txt"
+        self.direct_file_path = lib_path + "/direct.txt"
+        self.reject_file_path = lib_path + "/reject.txt"
 
     def write(self, rules: list[str], rule_sets: list[str]) -> None:
         """
@@ -74,14 +74,14 @@ class CustomLibManager:
     自定义规则库文件管理器
     负责自定义规则库文件的读取操作
     """
-    def __init__(self, path: str = ".\\custom"):
+    def __init__(self, path: str = "./custom"):
         self.path = path
-        if check_file(self.path + "\\manual_proxy.txt"):
-            self.proxy_file_path = path + "\\manual_proxy.txt"
-        if check_file(self.path + "\\manual_direct.txt"):
-            self.direct_file_path = path + "\\manual_direct.txt"
-        if check_file(self.path + "\\manual_reject.txt"):
-            self.reject_file_path = path + "\\manual_reject.txt"
+        if check_file(self.path + "/manual_proxy.txt"):
+            self.proxy_file_path = path + "/manual_proxy.txt"
+        if check_file(self.path + "/manual_direct.txt"):
+            self.direct_file_path = path + "/manual_direct.txt"
+        if check_file(self.path + "/manual_reject.txt"):
+            self.reject_file_path = path + "/manual_reject.txt"
 
     def read(self) -> dict[str, list[str]]:
         """

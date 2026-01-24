@@ -127,7 +127,7 @@ class SRProcessor:
 
 
 if __name__ == "__main__":
-    sr_conf = SRProcessor("..\\..\\remote_config\\sr\\lazy_group.conf")
+    sr_conf = SRProcessor("../../remote_config/sr/lazy_group.conf")
     _rules = sr_conf.get_rule_set()
     for rule in _rules:
         print(rule)

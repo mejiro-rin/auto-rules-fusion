@@ -26,8 +26,8 @@ class GetConfig:
         if self.urls_count == 0:
             return
 
-        sr_save_path = self.save_path + "\\sr"
-        clash_save_path = self.save_path + "\\clash"
+        sr_save_path = self.save_path + "/sr"
+        clash_save_path = self.save_path + "/clash"
 
         flag = 0
         success_count = 0
@@ -61,4 +61,4 @@ class GetConfig:
         return self.urls_count
 
 if __name__ == "__main__":
-    GetConfig("..\\lib\\remote_conf.txt", "../../remote_config")
+    GetConfig("../lib/remote_conf.txt", "../../remote_config")

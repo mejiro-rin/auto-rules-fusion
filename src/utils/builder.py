@@ -43,13 +43,13 @@ def parse_raw_text_to_metadata(text: str):
 
 
 class SRConfigBuilder:
-    def __init__(self, save_path: str = "..\\dist\\SR_config.txt"):
+    def __init__(self, save_path: str = "../dist/SR_config.txt"):
         """
         初始化配置生成器，设置模板文件路径。
         :param save_path: 生成配置文件的保存路径
         """
         self.save_path = save_path
-        self.template_name = "\\sr_template.conf"
+        self.template_name = "/sr_template.conf"
 
         if not _check_template(self.template_name):
             raise FileNotFoundError("模板文件 sr_template.conf 未找到。")
@@ -62,7 +62,7 @@ class SRConfigBuilder:
         :return: None
         """
         # 读取模板
-        template_path = ".\\lib" + self.template_name
+        template_path = "./lib" + self.template_name
         template_file = TxtManager(template_path)
         template_content = template_file.read_clean()
         # 生成最终规则列表
