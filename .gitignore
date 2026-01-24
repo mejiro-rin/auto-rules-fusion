@@ -1,0 +1,11 @@
+# Python venv
+/.venv/
+.venv/
+venv/
+env/
+*.pyc
+__pycache__/
+/.idea/
+/src/utils/fetcher
+/dist/
+/remote_config/

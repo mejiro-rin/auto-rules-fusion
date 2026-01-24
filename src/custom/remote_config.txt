@@ -1,0 +1,24 @@
+# 远程配置文件列表 #
+# 这里储存的是GitHub上以及其他开发者的配置文件地址，会被拉取存放到本项目根目录的 \remote_config 中，并解析供再次构建
+# 因为作者有强迫症，部分优秀但是过于丰富的配置文件因为不适合拉取存放而被舍弃，但依旧会收录在此列表中以供参考
+# 如果你有好的配置文件推荐，欢迎提交PR
+# 注意：请确保配置文件的版权允许分享和使用。如有能力请前往原作者处支持他们的工作。
+
+""Shadow rocket ""
+
+# 懒人配置 #
+# 作者：Lowertop
+# 地址：https://github.com/LOWERTOP/Shadowrocket
+https://lowertop.github.io/Shadowrocket/lazy_group.conf
+https://lowertop.github.io/Shadowrocket/lazy.conf
+
+# Shadowrocket-ADBlock-Rules-Forever #
+# 作者：JohnShall
+# 地址：https://github.com/Johnshall/Shadowrocket-ADBlock-Rules-Forever
+https://johnshall.github.io/Shadowrocket-ADBlock-Rules-Forever/sr_ad_only.conf
+
+
+"""Clash 内核配置文件"""
+# 作者：Loyalsoldier
+# 地址：https://github.com/Loyalsoldier/clash-rules
+
