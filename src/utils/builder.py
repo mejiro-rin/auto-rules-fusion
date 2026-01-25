@@ -7,14 +7,13 @@ from .tool.check import check_file
 from .lib_manager import LibManager, CustomLibManager
 from .storage.text_editor import TxtManager
 
-def _check_template(template: str) -> bool:
+def _check_template(template_path: str) -> bool:
     """
     检查资源文件是否存在。
-    :param template: 模板文件路径
+    :param template_path: 模板文件路径
     :return: 是否存在
     """
-    lib_path = "./lib"
-    return check_file(lib_path + template)
+    return check_file(template_path)
 
 
 def parse_raw_text_to_metadata(text: str):
@@ -43,15 +42,15 @@ def parse_raw_text_to_metadata(text: str):
 
 
 class SRConfigBuilder:
-    def __init__(self, save_path: str = "../dist/SR_config.txt"):
+    def __init__(self, save_path: str = "./dist"):
         """
         初始化配置生成器，设置模板文件路径。
         :param save_path: 生成配置文件的保存路径
         """
         self.save_path = save_path
-        self.template_name = "/sr_template.conf"
+        self.template_path = "./src/lib/sr_template.conf"
 
-        if not _check_template(self.template_name):
+        if not _check_template(self.template_path):
             raise FileNotFoundError("模板文件 sr_template.conf 未找到。")
 
     def build(self, rules_lib: LibManager, custom_lib: CustomLibManager) -> None:
@@ -62,8 +61,7 @@ class SRConfigBuilder:
         :return: None
         """
         # 读取模板
-        template_path = "./lib" + self.template_name
-        template_file = TxtManager(template_path)
+        template_file = TxtManager(self.template_path)
         template_content = template_file.read_clean()
         # 生成最终规则列表
         final_rules = self._final_rules(rules_lib, custom_lib)
@@ -85,7 +83,7 @@ class SRConfigBuilder:
             final_content.append(line)
 
         # 保存生成的配置文件
-        output_file = TxtManager(self.save_path)
+        output_file = TxtManager(self.save_path + "/SR_config.conf")
         output_file.reset("生成的SR配置文件")
         output_file.append(final_content)
 
@@ -120,7 +118,6 @@ class SRConfigBuilder:
                     formatted_lines.append(final_line)
 
             custom_formatted_dict[policy] = formatted_lines
-
 
         # 插入规则到模板
         # 优先级为: 自定义 > 拒绝 > 代理 > 直连

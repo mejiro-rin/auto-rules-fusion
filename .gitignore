@@ -9,3 +9,7 @@ __pycache__/
 /src/utils/fetcher
 /dist/
 /remote_config/
+src/lib/direct.txt
+src/lib/proxy.txt
+src/lib/sr_template.conf
+src/lib/reject.txt
