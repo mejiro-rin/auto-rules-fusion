@@ -55,6 +55,10 @@ class ConfigBuilder(ABC):
         if not text or text.startswith("#"):
             return None, text, True
 
+        # 如果以 .list 结尾，表示这是一个规则集 (rule set)
+        if text.lower().endswith('.list'):
+            return "RULE-SET", text, False
+
         # 如果已经是标准规则 (兼容用户直接写规则)
         if "," in text:
             parts = text.split(',')
@@ -98,15 +102,15 @@ class ConfigBuilder(ABC):
             custom_formatted_dict[policy] = formatted_lines
 
         # 插入规则到模板
-        # 优先级为: 自定义 > 拒绝 > 代理 > 直连
+        # 优先级为: 自定义 > 拒绝 > 直连 > 代理
         final_rules = []
-        for policy in ["REJECT", "PROXY", "DIRECT"]:
+        for policy in ["REJECT", "DIRECT", "PROXY"]:
             lines = custom_formatted_dict.get(policy, [])
             if lines:  # 只在有内容时添加
                 final_rules.extend(lines)
                 final_rules.append("")
 
-        for policy in ["REJECT", "PROXY", "DIRECT"]:
+        for policy in ["REJECT", "DIRECT", "PROXY"]:
             lines = rules_dict.get(policy, [])
             if lines:
                 final_rules.extend(lines)
