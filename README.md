@@ -45,7 +45,7 @@ auto-rule-fusion/
 直接订阅作者的配置文件，已融合规则，每日10点自动更新。
 > 🚀 Shadowrocket
 ````text
-https://raw.githubusercontent.com/mejiro-rin/auto-rules-fusion/refs/heads/generated/SR_config.conf
+https://raw.githubusercontent.com/mejiro-rin/auto-rules-fusion/refs/heads/generated/sr_config.conf
 ````
 > 😼 Clash 配置文件
 ````text
