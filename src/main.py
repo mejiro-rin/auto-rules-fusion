@@ -4,7 +4,10 @@ from utils.tool.text_editor import TxtManager
 from utils.tool.scan_file import scan_folder
 from utils.config_proc import SRProcessor
 from utils.builder import SRConfigBuilder, ClashConfigBuilder
-
+"""
+主程序入口，负责整体流程控制
+运行地址为项目根目录
+"""
 
 
 if __name__ == '__main__':

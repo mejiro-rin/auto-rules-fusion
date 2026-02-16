@@ -1,6 +1,7 @@
 """
 管理规则库列表文件的读写操作。
 """
+from pathlib import Path
 from utils.tool.text_editor import TxtManager
 from .tool.check import check_file
 
@@ -74,14 +75,27 @@ class UserLibManager:
     自定义规则库文件管理器
     负责自定义规则库文件的读取操作
     """
-    def __init__(self, path: str = "./custom"):
-        self.path = path
-        if check_file(self.path + "/manual_proxy.txt"):
-            self.proxy_file_path = path + "/manual_proxy.txt"
-        if check_file(self.path + "/manual_direct.txt"):
-            self.direct_file_path = path + "/manual_direct.txt"
-        if check_file(self.path + "/manual_reject.txt"):
-            self.reject_file_path = path + "/manual_reject.txt"
+    def __init__(self, path: str = "./src/custom"):
+        # self.path = path
+        # if check_file(self.path + "/manual_proxy.txt"):
+        #     self.proxy_file_path = path + "/manual_proxy.txt"
+        # if check_file(self.path + "/manual_direct.txt"):
+        #     self.direct_file_path = path + "/manual_direct.txt"
+        # if check_file(self.path + "/manual_reject.txt"):
+        #     self.reject_file_path = path + "/manual_reject.txt"
+        base = Path(path).resolve()
+        self.path = str(base)
+
+        proxy_path = base / "manual_proxy.txt"
+        direct_path = base / "manual_direct.txt"
+        reject_path = base / "manual_reject.txt"
+
+        if check_file(str(proxy_path)):
+            self.proxy_file_path = str(proxy_path)
+        if check_file(str(direct_path)):
+            self.direct_file_path = str(direct_path)
+        if check_file(str(reject_path)):
+            self.reject_file_path = str(reject_path)
 
     def read(self) -> dict[str, list[str]]:
         """
