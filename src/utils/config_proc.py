@@ -1,7 +1,7 @@
 """
 解析配置文件
 """
-from .storage.text_editor import TxtManager
+from utils.tool.text_editor import TxtManager
 from .tool.check import bring_policy_rule
 from .tool.check import check_file
 
@@ -97,7 +97,7 @@ class SRProcessor:
     def get_template(self) -> list[str] | None:
         """
         解析配置文件内容，提取模板内容。
-        :return: lib[str]
+        :return: cache[str]
         """
         if not hasattr(self, 'conf_path'):
             print("配置文件路径未定义，无法解析模板内容。")

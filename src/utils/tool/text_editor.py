@@ -68,9 +68,24 @@ class TxtManager:
 
         with open(self.file_path, "r", encoding="utf-8") as f:
             for raw in f:
-                line = raw.strip()  # 去除行首尾空白字符
+                line = raw.strip("\n")  # 去除行首尾空白字符
                 if not line or line.startswith("#"):
                     continue
+                text.append(line)
+        return text
+
+    def read_tab(self)-> list[str]:
+        """
+        读取文本文件，忽略空行和以 '#' 开头的备注行，返回纯文本。
+        :return: 纯文本文件内容
+        """
+        text = []
+
+        with open(self.file_path, "r", encoding="utf-8") as f:
+            for line in f:
+                # if not line or line.startswith("#"):
+                #     continue
+                line = line.strip("\n")
                 text.append(line)
         return text
 

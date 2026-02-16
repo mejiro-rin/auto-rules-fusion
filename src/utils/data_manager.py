@@ -1,15 +1,15 @@
 """
 管理规则库列表文件的读写操作。
 """
-from .storage.text_editor import TxtManager
+from utils.tool.text_editor import TxtManager
 from .tool.check import check_file
 
-class LibManager:
+class CacheManager:
     """
     规则库文件管理器
     负责规则库文件的读写操作
     """
-    def __init__(self, lib_path: str = "./lib"):
+    def __init__(self, lib_path: str = "./src/cache"):
         self.lib_path = lib_path
         self.proxy_file_path = lib_path + "/proxy.txt"
         self.direct_file_path = lib_path + "/direct.txt"
@@ -69,7 +69,7 @@ class LibManager:
         }
 
 
-class CustomLibManager:
+class UserLibManager:
     """
     自定义规则库文件管理器
     负责自定义规则库文件的读取操作

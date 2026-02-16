@@ -1,7 +1,7 @@
 """下载更新GitHub上提供的配置"""
 
 from .tool.download import Download
-from .storage.text_editor import TxtManager
+from utils.tool.text_editor import TxtManager
 
 class GetConfig:
     def __init__(self, list_path: str, save_path: str):
@@ -61,4 +61,4 @@ class GetConfig:
         return self.urls_count
 
 if __name__ == "__main__":
-    GetConfig("../lib/remote_conf.txt", "../../remote_config")
+    GetConfig("../cache/remote_conf.txt", "../../remote_config")

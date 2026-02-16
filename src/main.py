@@ -1,9 +1,9 @@
 from utils.get_config import GetConfig
-from utils.lib_manager import LibManager, CustomLibManager
-from utils.storage.text_editor import TxtManager
+from utils.data_manager import CacheManager, UserLibManager
+from utils.tool.text_editor import TxtManager
 from utils.tool.scan_file import scan_folder
 from utils.config_proc import SRProcessor
-from utils.builder import SRConfigBuilder
+from utils.builder import SRConfigBuilder, ClashConfigBuilder
 
 
 
@@ -47,7 +47,7 @@ if __name__ == '__main__':
         #     rule_sets.extend(CLProcessor(conf_file_path).get_rule_set())
         #     # rules.extend(SRProcessor(conf_file_path).get_rules())
         # 2.3 写入规则库文件
-        lib_manager = LibManager("./src/lib")
+        lib_manager = CacheManager("./src/cache")
         lib_manager.write(rules, rule_sets)
         print("规则库生成完成。")
         break
@@ -65,13 +65,16 @@ if __name__ == '__main__':
         sr_template = TxtManager("./src/lib/sr_template.conf")
         sr_template.reset("ShadowRocket 配置文件模板")
         sr_template.append(sr_updated)
-        # clash_template = TxtManager("./lib/clash_template.yaml")
+        # 目前没有合适作为clash模板的配置文件，使用的是AI生成的模板
+        # clash_template = TxtManager("./src/lib/verge_template.yaml")
         # clash_template.reset("Clash 配置文件模板")
         # clash_template.append(cl_updated)
         print("模板配置文件更新完成。")
         break
 
     ## 4. 构建配置 ##
-    sr_builder = SRConfigBuilder("./dist")
-    sr_builder.build(LibManager("./src/lib"), CustomLibManager("./src/custom"))
+    sr_builder = SRConfigBuilder()
+    sr_builder.build()
 
+    # verge_builder = ClashConfigBuilder()
+    # verge_builder.build()

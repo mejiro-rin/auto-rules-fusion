@@ -1,2 +1,37 @@
 # 自定义 DIRECT 规则列表
 # 优先级高于默认规则列表
+
+# DouYin
+amemv.com
+awemeughun.com
+byteacctimg.com
+byteactivity.com
+bytecdn.cn
+bytecdn.com
+bytedance.com
+bytednsdoc.com
+byteeffecttos.com
+bytegecko.com
+bytegoofy.com
+byteimg.com
+bytemastatic.com
+bytescm.com
+bytetos.com
+douyincdn.com
+douyinpic.com
+douyinstatic.com
+douyinvod.com
+ecombdapi.com
+ecombdimg.com
+ecombdstatic.com
+ibytedapm.com
+idouyinvod.com
+ixigua.com
+ixiguavideo.com
+pstatp.com
+snssdk.com
+toutiao.com
+umeng.com
+xycdn.com
+zijieapi.com
+zjcdn.com

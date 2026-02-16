@@ -1,10 +1,6 @@
 # 自定义 Proxy 规则列表
 # 优先级高于默认规则列表
 
-
-# 台湾香港澳门常用网站
-appledaily.tw
-
 # Google
 www-google-analytics.l.google.com
 ssl-google-analytics.l.google.com
@@ -15,9 +11,6 @@ pagead-tpc.l.google.com
 mobileads.google.com
 ads.google.com
 afd.l.google.com
-
-# 华尔街邮报
-dowjones.com
 
 # Microsoft OneDrive（可能冗余）
 bcbits.com
@@ -183,9 +176,6 @@ wholekidsfoundation.org
 wholeplanetfoundation.org
 yamaxun.com
 
-# AOL
-aol.com
-
 # APPLE NEWS
 news-events.apple.com
 news-edge.apple.com
@@ -243,151 +233,12 @@ swdist.apple.com.akadns.net
 swscan-cdn.apple.com.akadns.net
 valid.origin-apple.com.akadns.net
 
-# DisneyPlus
-20thcenturystudios.com.au
-20thcenturystudios.com.br
-20thcenturystudios.jp
-adventuresbydisney.com
-babble.com
-babyzone.com
-bamgrid.com
-beautyandthebeastmusical.co.uk
-disney.asia
-disney.be
-disney.bg
-disney.ca
-disney.ch
-disney.co.il
-disney.co.jp
-disney.co.kr
-disney.co.th
-disney.co.uk
-disney.co.za
-disney.com
-disney.com.au
-disney.com.br
-disney.com.hk
-disney.com.tw
-disney.cz
-disney.de
-disney.dk
-disney.es
-disney.fi
-disney.fr
-disney.gr
-disney.hu
-disney.id
-disney.in
-disney.io
-disney.it
-disney.my
-disney.nl
-disney.no
-disney.ph
-disney.pl
-disney.pt
-disney.ro
-disney.ru
-disney.se
-disney.sg
-dilcdn.com
-disney-asia.com
-disney-discount.com
-disney-plus.net
-disney-portal.my.onetrust.com
-disney-studio.com
-disney-studio.net
-disney.my.sentry.io
-disneyadsales.com
-disneyarena.com
-disneyaulani.com
-disneybaby.com
-disneycareers.com
-disneychannelonstage.com
-disneychannelroadtrip.com
-disneycruisebrasil.com
-disneyenconcert.com
-disneyiejobs.com
-disneyinflight.com
-disneyinternational.com
-disneyinternationalhd.com
-disneyjunior.com
-disneyjuniortreataday.com
-disneylatino.com
-disneymagicmoments.co.il
-disneymagicmoments.co.uk
-disneymagicmoments.co.za
-disneymagicmoments.de
-disneymagicmoments.es
-disneymagicmoments.fr
-disneymagicmoments.gen.tr
-disneymagicmoments.gr
-disneymagicmoments.it
-disneymagicmoments.pl
-disneymagicmomentsme.com
-disneyme.com
-disneymeetingsandevents.com
-disneymovieinsiders.com
-disneymusicpromotion.com
-disneynewseries.com
-disneynow.com
-disneypeoplesurveys.com
-disneyplus.bn5x.net
-disneyplus.com
-disneyplus.com.ssl.sc.omtrdc.net
-disneyredirects.com
-disneysrivieraresort.com
-disneystore.com
-disneystreaming.com
-disneysubscription.com
-disneytickets.co.uk
-disneyturkiye.com.tr
-disneytvajobs.com
-disneyworld-go.com
-dssott.com
-go-disneyworldgo.com
-go.com
-mickey.tv
-moviesanywhere.com
-nomadlandmovie.ch
-playmation.com
-shopdisney.com
-shops-disney.com
-sorcerersarena.com
-spaindisney.com
-star-brasil.com
-star-latam.com
-starwars.com
-starwarsgalacticstarcruiser.com
-starwarskids.com
-streamingdisney.net
-thestationbymaker.com
-thisispolaris.com
-watchdisneyfe.com
-
-# disqus
-disquscdn.com
-
-# DNS Leak
-dnsleaktest.com
-ipleak.net
-browserleaks.com
-browserleaks.org
-vpnunlimited.com
-whrq.net
-
-# Forefront
-forefront.ai
-
 # GitHub
 github.dev
 raw.githubusercontent.com
 
 # GitHub Copilot
 copilot.microsoft.com
-
-# hoyolab
-hoyolab.com
 
 # linkedin
 linkedin.cn
@@ -401,18 +252,6 @@ bing.com
 mc-heads.net
 piston-data.mojang.com
 resources.download.minecraft.net
-
-# Mozilla
-mozilla.org
-
-# news
-vox.com
-
-# Paramount
-paramountplus.com
-
-# TED
-tedcdn.com
 
 # Telegram
 91.108.56.0/22
@@ -441,7 +280,3 @@ txt.fyi
 
 # Yahoo
 yahoo.com
-
-# 越狱下载源加速
-apt.thebigboss.org
-repo.chariz.com

@@ -138,7 +138,6 @@ auto-rule-fusion/
 │   │   └── sr_template.conf    # Shadowrocket 配置文件模板
 │   └── utils/              # 工具模块
 │       ├── storage/            # 文件读写相关
-│       │   ├── cache_manager.py    # 缓存管理（测试期间的产物，目前用不上）
 │       │   └── text_manager.py     # 文档管理
 │       ├── tool/               # 工具函数
 │       │   ├── check.py            # 检查函数
