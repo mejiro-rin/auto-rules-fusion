@@ -1,29 +1,6 @@
 # 自定义 Proxy 规则列表
 # 优先级高于默认规则列表
 
-# Google
-www-google-analytics.l.google.com
-ssl-google-analytics.l.google.com
-partnerad.l.google.com
-pagead.l.google.com
-pagead.google.com
-pagead-tpc.l.google.com
-mobileads.google.com
-ads.google.com
-afd.l.google.com
-
-# Microsoft OneDrive（可能冗余）
-bcbits.com
-ogma.iad.appboy.com
-odc.officeapps.live.com
-skyapi.live.net
-centralus1.mediap.svc.ms
-dm.files.1drv.com
-mobile.pipe.aria.microsoft.com
-gate.hockeyapp.net
-api.onedrive.com
-vortex.data.microsoft.com
-
 # Adobe
 adobe.com
 
@@ -192,9 +169,13 @@ apple.news
 news.iadsdk.apple.com
 
 # Apple
-apple-relay.apple.com
+guzzoni.apple.com
+*.smoot.apple.com
 apple-relay.cloudflare.com
 apple-relay.fastly-edge.com
+cp4.cloudflare.com
+apple-relay.apple.com
+
 appldnld.g.aaplimg.com
 adcdownload.apple.com.akadns.net
 cds.apple.com.akadns.net
@@ -206,12 +187,10 @@ cl4-cdn.origin-apple.com.akadns.net
 cl5-cdn.origin-apple.com.akadns.net
 clientflow.apple.com.akadns.net
 configuration.apple.com.akadns.net
-cp4.cloudflare.com
 dd-cdn.origin-apple.com.akadns.net
 gspe1-ssl.ls.apple.com
 gspe19-cn.ls-apple.com.akadns.net
 gs-loc-cn.apple.com
-guzzoni.apple.com
 icloud-cdn.icloud.com.akadns.net
 init-p01md-lb.push-apple.com.akadns.net
 init-p01st-lb.push-apple.com.akadns.net
@@ -240,6 +219,9 @@ raw.githubusercontent.com
 # GitHub Copilot
 copilot.microsoft.com
 
+# Google
+https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Shadowrocket/Google/Google.list
+
 # linkedin
 linkedin.cn
 linkedin.com
@@ -248,35 +230,25 @@ linkedin.com
 location.microsoft.com
 bing.com
 
+# Microsoft Copilot
+https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Shadowrocket/Copilot/Copilot.list
+
+# Microsoft OneDrive（可能冗余）
+bcbits.com
+ogma.iad.appboy.com
+odc.officeapps.live.com
+skyapi.live.net
+centralus1.mediap.svc.ms
+dm.files.1drv.com
+mobile.pipe.aria.microsoft.com
+gate.hockeyapp.net
+api.onedrive.com
+vortex.data.microsoft.com
+
 # Minecraft java
 mc-heads.net
 piston-data.mojang.com
 resources.download.minecraft.net
 
 # Telegram
-91.108.56.0/22
-91.108.4.0/22
-91.108.8.0/22
-91.108.16.0/22
-91.108.12.0/22
-91.105.192.0/23
-91.108.20.0/22
-149.154.160.0/20
-185.76.151.0/24
-2001:b28:f23d::/48
-2001:b28:f23f::/48
-2001:67c:4e8::/48
-2001:b28:f23c::/48
-2a0a:f280::/32
-t.me
-tdesktop.com
-telegra.ph
-telegram.me
-telegram.org
-telesco.pe
-
-# Txt.fyi
-txt.fyi
-
-# Yahoo
-yahoo.com
+https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Shadowrocket/Telegram/Telegram.list
