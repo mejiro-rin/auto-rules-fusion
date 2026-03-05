@@ -2,6 +2,7 @@
 
 from .tool.download import Download
 from utils.tool.text_editor import TxtManager
+from .tool.update_checker import UpdateChecker
 
 class GetConfig:
     def __init__(self, list_path: str, save_path: str):
@@ -10,6 +11,7 @@ class GetConfig:
         config = TxtManager(self.file_path)
         self.urls = config.read_clean()
         self.failed_count = 0
+        self.updated_count = 0
 
         self.urls_count = len(self.urls)
         if self.urls_count <= 2:
@@ -29,6 +31,7 @@ class GetConfig:
         sr_save_path = self.save_path + "/sr"
         clash_save_path = self.save_path + "/clash"
 
+        checker = UpdateChecker()
         flag = 0
         success_count = 0
         failed_urls = []
@@ -40,16 +43,22 @@ class GetConfig:
 
             try:
                 if flag == 1:
-                    Download(url, sr_save_path)
+                    dl = Download(url, sr_save_path, checker=checker)
+                    if dl.updated:
+                        self.updated_count += 1
+                    success_count += 1
                 elif flag == 2:
-                    Download(url, clash_save_path)
-                success_count += 1
+                    dl = Download(url, clash_save_path, checker=checker)
+                    if dl.updated:
+                        self.updated_count += 1
+                    success_count += 1
             except Exception as e:
                 self.failed_count += 1
                 failed_urls.append((url, str(e)))
 
         # 打印统计结果
-        print(f"\n拉取配置完成 - 成功: {success_count}, 失败: {self.failed_count}")
+        unchanged_count = success_count - self.updated_count
+        print(f"\n拉取配置完成 - 成功: {success_count} (更新: {self.updated_count}, 未变更: {unchanged_count}), 失败: {self.failed_count}")
         # if failed_urls:
         #     print("失败的URL:")
         #     for url, error in failed_urls:
@@ -57,6 +66,10 @@ class GetConfig:
 
     def get_failed_count(self) -> int:
         return self.failed_count
+
+    def get_updated_count(self) -> int:
+        return self.updated_count
+
     def get_urls_count(self) -> int:
         return self.urls_count
 

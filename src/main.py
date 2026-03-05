@@ -17,6 +17,7 @@ if __name__ == '__main__':
     ## 1. 更新拉取仓库提供的配置 ##
     remote_config = GetConfig("./src/custom/remote_config.txt", "./remote_config")
     get_failed = remote_config.get_failed_count()
+    get_updated = remote_config.get_updated_count()
     if remote_config.get_urls_count() == 0:
         print("未找到可拉取的远程配置。")
         use_rule_set = False
@@ -25,6 +26,8 @@ if __name__ == '__main__':
         # 有失败则提示用户选择
         if get_failed > 0:
             print(f"注意: 拉取远程配置时有 {get_failed} 条失败，请检查网络或URL的有效性。")
+        if get_updated == 0:
+            print("所有远程规则库均无更新。")
 
 
     ## 2. 解析拉取到的配置使用的规则与规则集 ##
