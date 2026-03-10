@@ -79,5 +79,5 @@ if __name__ == '__main__':
     sr_builder = SRConfigBuilder()
     sr_builder.build()
 
-    # verge_builder = ClashConfigBuilder()
-    # verge_builder.build()
+    verge_builder = ClashConfigBuilder()
+    verge_builder.build()

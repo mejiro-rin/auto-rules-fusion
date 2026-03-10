@@ -1,2 +1,8 @@
 # 自定义 REJECT 规则列表
 # 优先级高于默认规则列表
+
+# Advertising
+https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Shadowrocket/Advertising/Advertising.list
+
+# Direct
+https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Shadowrocket/AdGuardSDNSFilter/Direct/Direct.list

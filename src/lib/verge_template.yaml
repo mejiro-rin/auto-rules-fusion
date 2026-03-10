@@ -1,0 +1,78 @@
+# Clash Verge Rev 配置模板 - Grok 生成
+# 生成时间: 2016.1.29
+
+mixed-port: 7890
+allow-lan: true
+mode: rule
+log-level: info
+
+# 系统代理相关（Verge 会自动管理）
+ipv6: false
+geodata-mode: true
+geo-auto-update: true
+geo-update-interval: 24
+
+# DNS 配置（推荐，防污染）
+dns:
+  enable: true
+  listen: 0.0.0.0:53
+  ipv6: false
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  nameserver:
+    - 114.114.114.114
+    - 223.5.5.5
+  fallback:
+    - tls://1.1.1.1:853
+    - tls://1.0.0.1:853
+  fallback-filter:
+    geoip: true
+    ipcidr:
+      - 240.0.0.0/4
+
+# Sniffer（域名嗅探，推荐开启）
+sniffer:
+  enable: true
+  sniff: [http, tls, quic]
+
+# tun 模式（可选，Verge 支持全局模式时常用）
+tun:
+  enable: false
+  stack: system
+  auto-route: true
+  auto-detect-interface: true
+
+proxies: []                     # 节点留空，用户从订阅导入
+
+proxy-groups:
+  - name: "PROXY"
+    type: select
+    proxies:
+      - ♻️ 自动选择
+      - DIRECT
+      - REJECT
+
+  - name: "♻️ 自动选择"
+    type: url-test
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+    proxies: []
+
+  - name: "🛑 广告拦截"
+    type: select
+    proxies:
+      - REJECT
+
+  - name: "🎯 全球直连"
+    type: select
+    proxies:
+      - DIRECT
+
+  - name: "🈯 私有网络"
+    type: select
+    proxies:
+      - DIRECT
+
+rules:
+  # 默认规则
+  - MATCH,🚀 代理

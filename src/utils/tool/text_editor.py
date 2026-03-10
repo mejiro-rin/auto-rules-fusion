@@ -61,8 +61,8 @@ class TxtManager:
 
     def read_clean(self)-> list[str]:
         """
-        读取文本文件，忽略空行和以 '#' 开头的备注行，返回纯文本。
-        :return: 纯文本文件内容
+        读取纯文本。忽略空行和以 '#' 开头的备注行
+        :return: list[str] 纯文本文件内容
         """
         text = []
 
@@ -76,8 +76,8 @@ class TxtManager:
 
     def read_tab(self)-> list[str]:
         """
-        读取文本文件，忽略空行和以 '#' 开头的备注行，返回纯文本。
-        :return: 纯文本文件内容
+        读取文本，保留缩进。忽略空行和以 '#' 开头的备注行
+        :return: list[str] 文本文件内容，保留缩进
         """
         text = []
 
