@@ -1,7 +1,7 @@
 
 <div align="center">
   <img src="https://img.shields.io/badge/Python-3.10%2B-blue" alt="Python Version" />
-  <img src="https://img.shields.io/badge/Clash-Supported-darkviolet" alt="Clash Supported" />
+  <img src="https://img.shields.io/badge/Clash-Building-darkviolet" alt="Clash Building" />
   <img src="https://img.shields.io/badge/Shadowrocket-Supported-mediumpurple" alt="Shadowrocket Supported" />
 </div>
 
