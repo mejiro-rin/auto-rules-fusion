@@ -22,6 +22,9 @@ https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master
 # DiDi
 https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Shadowrocket/DiDi/DiDi.list
 
+# Direct
+https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Shadowrocket/AdGuardSDNSFilter/Direct/Direct.list
+
 # DouYin
 https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Shadowrocket/DouYin/DouYin.list
 douyin.com

@@ -3,6 +3,3 @@
 
 # Advertising
 https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Shadowrocket/Advertising/Advertising.list
-
-# Direct
-https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Shadowrocket/AdGuardSDNSFilter/Direct/Direct.list
