@@ -212,6 +212,9 @@ swdist.apple.com.akadns.net
 swscan-cdn.apple.com.akadns.net
 valid.origin-apple.com.akadns.net
 
+# Claude
+https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Claude/Claude.list
+
 # Gemini
 https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Shadowrocket/Gemini/Gemini.list
 
