@@ -2,8 +2,8 @@ name: 自动生成并推送到 generated 分支
 
 on:
   push:
-    branches: [ main ]          # 只在 main push 时触发
-  workflow_dispatch:  # 添加这一行，开启手动触发按钮
+    branches: [ main ]        # 只在 main push 时触发
+  workflow_dispatch:          # 开启手动触发按钮
   schedule:
     - cron: '0 2 * * *'
 
@@ -15,7 +15,7 @@ jobs:
     - name: 拉取代码
       uses: actions/checkout@v6
       with:
-        fetch-depth: 0           # 需要完整历史来 push
+        fetch-depth: 0        # 需要完整历史来 push
 
     - name: 设置 Python
       uses: actions/setup-python@v6
@@ -30,7 +30,7 @@ jobs:
       uses: peaceiris/actions-gh-pages@v4
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}   # 自动提供，不用手动设
-        publish_dir: ./dist                         # 你的生成目录
+        publish_dir: ./output                       # 你的生成目录
         publish_branch: generated                   # 目标分支名（自动创建如果不存在）
         force_orphan: true                          # 每次强制新 commit，历史干净不累积
         user_name: 'github-actions[bot]'            # 可选，显示 Actions 机器人
