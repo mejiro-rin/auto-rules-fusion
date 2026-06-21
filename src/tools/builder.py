@@ -9,7 +9,7 @@ from abc import ABC, abstractmethod
 
 
 class ConfigBuilder(ABC):
-    def __init__(self, template_path: str, output_filename: str, save_path: str = PathManager.dist_dir()):
+    def __init__(self, template_path: str, output_filename: str, save_path: str = PathManager.output_dir()):
         """
         初始化配置生成器，设置模板文件路径。
         :param template_path: 模板文件路径
@@ -118,14 +118,17 @@ class ConfigBuilder(ABC):
 
 
 class SRConfigBuilder(ConfigBuilder):
-    def __init__(self, template_path: str = PathManager.sr_template(), save_path: str = PathManager.dist_dir()):
+    """SR 配置文件生成器"""
+    OUTPUT_FILENAME = "sr_config.conf"
+
+    def __init__(self, template_path: str = PathManager.sr_template(), save_path: str = PathManager.output_dir()):
         """
         初始化配置生成器，设置模板文件路径。
         :param template_path: 模板文件路径
         :param save_path: 生成配置文件的保存路径
         :return: None
         """
-        super().__init__(template_path, "sr_config.conf", save_path)
+        super().__init__(template_path, self.OUTPUT_FILENAME, save_path)
 
 
     def build(self) -> None:
@@ -166,14 +169,17 @@ class SRConfigBuilder(ConfigBuilder):
 
 
 class ClashConfigBuilder(ConfigBuilder):
-    def __init__(self, output_filename = "clash_config.yaml", template_path: str = PathManager.verge_template(), save_path: str = PathManager.dist_dir()):
+    """Clash 配置文件生成器"""
+    OUTPUT_FILENAME = "clash_config.yaml"
+
+    def __init__(self, template_path: str = PathManager.verge_template(), save_path: str = PathManager.output_dir()):
         """
         初始化配置生成器，设置模板文件路径。
         :param template_path: 模板文件路径
         :param save_path: 生成配置文件的保存路径
         :return: None
         """
-        super().__init__(template_path, output_filename, save_path)
+        super().__init__(template_path, self.OUTPUT_FILENAME, save_path)
 
 
     def build(self) -> None:

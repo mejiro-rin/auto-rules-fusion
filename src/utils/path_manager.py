@@ -73,18 +73,10 @@ class PathManager:
     def cache_reject(cls) -> str:
         return cls.cache_file("reject")
 
-    # ── dist 目录 ──────────────────────────────
+    # ── output 目录 ────────────────────────────────
     @classmethod
-    def dist_dir(cls) -> str:
-        return str(cls._root / "dist")
-
-    @classmethod
-    def sr_output(cls) -> str:
-        return str(cls._root / "dist" / "sr_config.conf")
-
-    @classmethod
-    def clash_output(cls) -> str:
-        return str(cls._root / "dist" / "clash_config.yaml")
+    def output_dir(cls) -> str:
+        return str(cls._root / "output")
 
     # ── remote_config 目录 ─────────────────────
     @classmethod
