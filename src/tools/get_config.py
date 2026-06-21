@@ -1,13 +1,16 @@
 """下载更新GitHub上提供的配置"""
 
-from .tool.download import Download
-from utils.tool.text_editor import TxtManager
+from utils import Download
+from utils.text_editor import TxtManager
+from utils.path_manager import PathManager
 
 class GetConfig:
-    def __init__(self, list_path: str, save_path: str):
-        self.file_path = list_path
-        self.save_path = save_path
-        config = TxtManager(self.file_path)
+    def __init__(self, list_path: str, save_dir: str):
+        self.list_file_path = list_path
+        self.save_dir_path = save_dir
+
+        # 获取需要下载的链接（未注释）
+        config = TxtManager(self.list_file_path)
         self.urls = config.read_clean()
         self.failed_count = 0
 
@@ -22,12 +25,12 @@ class GetConfig:
 
     def _load_conf(self)-> None:
         # 更新其他仓库的配置
-        print(f"需要拉取配置: {self.urls_count - 2} 条。")
+        print(f"需要下载远程文件: {self.urls_count - 2} 条。")
         if self.urls_count == 0:
             return
 
-        sr_save_path = self.save_path + "/sr"
-        clash_save_path = self.save_path + "/clash"
+        sr_save_path = self.save_dir_path + "/sr"
+        clash_save_path = self.save_dir_path + "/clash"
 
         flag = 0
         success_count = 0
@@ -61,4 +64,4 @@ class GetConfig:
         return self.urls_count
 
 if __name__ == "__main__":
-    GetConfig("../cache/remote_conf.txt", "../../remote_config")
+    GetConfig(PathManager.remote_config_list(), PathManager.remote_config_dir())

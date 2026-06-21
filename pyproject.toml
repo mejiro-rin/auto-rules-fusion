@@ -1,0 +1,12 @@
+[project]
+name = "auto-rules-fusion"
+version = "0.2.0"
+description = "一个简单、支持自定义的广告屏蔽 + 规则融合工具"
+requires-python = ">=3.10"
+dependencies = [
+    "certifi==2026.6.17",
+    "charset-normalizer==3.4.7",
+    "idna==3.18",
+    "requests==2.34.2",
+    "urllib3==2.7.0",
+]

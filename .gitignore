@@ -1,13 +1,12 @@
-# Python venv
-/.venv/
-.venv/
-venv/
-env/
 *.pyc
 __pycache__/
-/.idea/
-/src/utils/fetcher
-/dist/
-/remote_config/
-/src/cache/
-src/lib/sr_template.conf
+
+.venv/
+.idea/
+.vscode/
+
+output/
+cache/
+remote_config/
+
+lib/sr_template.conf

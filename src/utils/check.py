@@ -14,7 +14,7 @@ def check_folder_file(folder_path: str) -> int:
     return len([f for f in path_obj.iterdir() if f.is_file()])
 
 
-def check_file(file_path: str) -> bool:
+def ensure_file(file_path: str) -> bool:
     """
     检查文件是否存在
     :param file_path: 文件路径
@@ -67,9 +67,10 @@ def bring_policy_rule (line: str) -> bool:
 
 if __name__ == "__main__":
     # 检查文件夹
-    count = check_folder_file("../../../remote_config/sr")
+    count = check_folder_file(PathManager.remote_sr_dir())
     print(f"文件数量: {count}")
 
     # 检查文件
-    exists = check_file("../tool/check.py")
+    exists = ensure_file("check.py")
     print(f"文件存在: {exists}")
+from utils.path_manager import PathManager
