@@ -1,16 +1,15 @@
-"""
-配置文件生成器，用于生成配置文件
-"""
+"""配置文件生成器，用于生成配置文件"""
 
 import re
-from .tool.check import check_file
+from utils.check import ensure_file
 from .data_manager import CacheManager, UserLibManager
-from utils.tool.text_editor import TxtManager
+from utils.text_editor import TxtManager
+from utils.path_manager import PathManager
 from abc import ABC, abstractmethod
 
 
 class ConfigBuilder(ABC):
-    def __init__(self, template_path: str, output_filename: str, save_path: str = "./dist"):
+    def __init__(self, template_path: str, output_filename: str, save_path: str = PathManager.dist_dir()):
         """
         初始化配置生成器，设置模板文件路径。
         :param template_path: 模板文件路径
@@ -42,7 +41,7 @@ class ConfigBuilder(ABC):
         """
         检查资源文件是否存在。
         """
-        if not check_file(self.template_path):
+        if not ensure_file(self.template_path):
             raise FileNotFoundError(f"模板文件 {self.template_path} 未找到。")
 
     @staticmethod
@@ -119,7 +118,7 @@ class ConfigBuilder(ABC):
 
 
 class SRConfigBuilder(ConfigBuilder):
-    def __init__(self, template_path: str = "./src/lib/sr_template.conf", save_path: str = "./dist"):
+    def __init__(self, template_path: str = PathManager.sr_template(), save_path: str = PathManager.dist_dir()):
         """
         初始化配置生成器，设置模板文件路径。
         :param template_path: 模板文件路径
@@ -167,7 +166,7 @@ class SRConfigBuilder(ConfigBuilder):
 
 
 class ClashConfigBuilder(ConfigBuilder):
-    def __init__(self, output_filename = "clash_config.yaml", template_path: str = "./src/lib/verge_template.yaml", save_path: str = "./dist"):
+    def __init__(self, output_filename = "clash_config.yaml", template_path: str = PathManager.verge_template(), save_path: str = PathManager.dist_dir()):
         """
         初始化配置生成器，设置模板文件路径。
         :param template_path: 模板文件路径

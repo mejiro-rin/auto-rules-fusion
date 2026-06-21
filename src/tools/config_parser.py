@@ -1,11 +1,12 @@
-"""
-解析配置文件
-"""
-from utils.tool.text_editor import TxtManager
-from .tool.check import bring_policy_rule
-from .tool.check import check_file
+"""解析本地下载好的配置文件，提取规则和General部分内容"""
 
-class SRProcessor:
+from utils.text_editor import TxtManager
+from utils.check import bring_policy_rule
+from utils.check import ensure_file
+
+
+from utils.path_manager import PathManager
+class SRParser:
     """
     处理SR格式配置文件的类，提供解析规则集和General部分内容的方法。
     """
@@ -15,7 +16,7 @@ class SRProcessor:
         :param conf_path: 要解析的配置文件路径
         """
         # 记录单个配置具体路径
-        if check_file(conf_path):
+        if ensure_file(conf_path):
             self.conf_path = conf_path
         else :
             raise FileNotFoundError(f"配置文件未找到: {conf_path}")
@@ -127,7 +128,7 @@ class SRProcessor:
 
 
 if __name__ == "__main__":
-    sr_conf = SRProcessor("../../remote_config/sr/lazy_group.conf")
+    sr_conf = SRParser(PathManager.remote_sr_file("lazy_group.conf"))
     _rules = sr_conf.get_rule_set()
     for rule in _rules:
         print(rule)

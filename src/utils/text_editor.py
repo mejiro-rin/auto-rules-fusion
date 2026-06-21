@@ -3,7 +3,7 @@
 """
 
 from datetime import datetime
-from utils.tool.check import ensure_directory_exists
+from utils.check import ensure_directory_exists
 class TxtManager:
     """
     文本文件管理器
@@ -15,7 +15,6 @@ class TxtManager:
         :param file_path: 文件路径
         """
         if not ensure_directory_exists(file_path):
-            # 如果无法创建目录，后续操作都会失败，所以直接抛出异常
             raise IOError(f"初始化失败：无法创建或访问目录 {file_path}")
 
         self.file_path = file_path
