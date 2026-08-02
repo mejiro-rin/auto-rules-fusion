@@ -153,21 +153,6 @@ wholekidsfoundation.org
 wholeplanetfoundation.org
 yamaxun.com
 
-# APPLE NEWS
-news-events.apple.com
-news-edge.apple.com
-apple.comscoreresearch.com
-play.itunes.apple.com
-play-cdn.itunes-apple.com.akadns.net
-cvws.apple-dns.net
-news.apple-dns.net
-gateway.fe.apple-dns.net
-akamaiedge.net
-gs-loc.apple.com
-bag.itunes.apple.com
-apple.news
-news.iadsdk.apple.com
-
 # Apple
 guzzoni.apple.com
 *.smoot.apple.com
@@ -211,6 +196,40 @@ swcatalog-cdn.apple.com.akadns.net
 swdist.apple.com.akadns.net
 swscan-cdn.apple.com.akadns.net
 valid.origin-apple.com.akadns.net
+
+# Apple NEWS
+news-events.apple.com
+news-edge.apple.com
+apple.comscoreresearch.com
+play.itunes.apple.com
+play-cdn.itunes-apple.com.akadns.net
+cvws.apple-dns.net
+news.apple-dns.net
+gateway.fe.apple-dns.net
+akamaiedge.net
+gs-loc.apple.com
+bag.itunes.apple.com
+apple.news
+news.iadsdk.apple.com
+
+# Apple Siri AI
+guzzoni.apple.com
+mask-api.fe.apple-dns.net
+mask-api.icloud.com
+mask-t.apple-dns.net
+mask.apple-dns.net
+apple-relay.apple.com
+apple-relay.cloudflare.com
+apple-relay.fastly-edge.com
+apple-relay.mask.apple-dns.net
+cp4.cloudflare.com
+gateway.icloud.com
+gspel-ssl.ls.apple.com
+ls.apple.com
+mask-h2.icloud.com
+mask.icloud.com
+smoot.apple.com
+apps.mzstatic.com
 
 # Claude
 https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Claude/Claude.list
