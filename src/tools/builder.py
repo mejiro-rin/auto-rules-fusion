@@ -1,16 +1,15 @@
-"""
-配置文件生成器，用于生成配置文件
-"""
+"""配置文件生成器，用于生成配置文件"""
 
 import re
-from .tool.check import check_file
+from utils.check import ensure_file
 from .data_manager import CacheManager, UserLibManager
-from utils.tool.text_editor import TxtManager
+from utils.text_editor import TxtManager
+from utils.path_manager import PathManager
 from abc import ABC, abstractmethod
 
 
 class ConfigBuilder(ABC):
-    def __init__(self, template_path: str, output_filename: str, save_path: str = "./dist"):
+    def __init__(self, template_path: str, output_filename: str, save_path: str = PathManager.output_dir()):
         """
         初始化配置生成器，设置模板文件路径。
         :param template_path: 模板文件路径
@@ -42,7 +41,7 @@ class ConfigBuilder(ABC):
         """
         检查资源文件是否存在。
         """
-        if not check_file(self.template_path):
+        if not ensure_file(self.template_path):
             raise FileNotFoundError(f"模板文件 {self.template_path} 未找到。")
 
     @staticmethod
@@ -119,14 +118,17 @@ class ConfigBuilder(ABC):
 
 
 class SRConfigBuilder(ConfigBuilder):
-    def __init__(self, template_path: str = "./src/lib/sr_template.conf", save_path: str = "./dist"):
+    """SR 配置文件生成器"""
+    OUTPUT_FILENAME = "sr_config.conf"
+
+    def __init__(self, template_path: str = PathManager.sr_template(), save_path: str = PathManager.output_dir()):
         """
         初始化配置生成器，设置模板文件路径。
         :param template_path: 模板文件路径
         :param save_path: 生成配置文件的保存路径
         :return: None
         """
-        super().__init__(template_path, "sr_config.conf", save_path)
+        super().__init__(template_path, self.OUTPUT_FILENAME, save_path)
 
 
     def build(self) -> None:
@@ -167,14 +169,17 @@ class SRConfigBuilder(ConfigBuilder):
 
 
 class ClashConfigBuilder(ConfigBuilder):
-    def __init__(self, output_filename = "clash_config.yaml", template_path: str = "./src/lib/verge_template.yaml", save_path: str = "./dist"):
+    """Clash 配置文件生成器"""
+    OUTPUT_FILENAME = "clash_config.yaml"
+
+    def __init__(self, template_path: str = PathManager.verge_template(), save_path: str = PathManager.output_dir()):
         """
         初始化配置生成器，设置模板文件路径。
         :param template_path: 模板文件路径
         :param save_path: 生成配置文件的保存路径
         :return: None
         """
-        super().__init__(template_path, output_filename, save_path)
+        super().__init__(template_path, self.OUTPUT_FILENAME, save_path)
 
 
     def build(self) -> None:

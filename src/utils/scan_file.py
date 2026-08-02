@@ -26,7 +26,7 @@ def scan_folder(directory: str)-> list[str]:
     :return: 文件路径列表
     """
     file_links = []
-    if os.path.exists:
+    if os.path.exists(directory):
         for filename in os.listdir(directory):
             file_path = os.path.join(directory, filename)
             if os.path.isfile(file_path):

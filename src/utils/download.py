@@ -18,12 +18,12 @@ class Download:
             file_name = self.target_url.split('/')[-1]
 
             # 2. 拼接完整的保存路径
-            # 如果 save_path 是文件夹，则在该文件夹下创建同名文件
+            # 如果 save_dir_path 是文件夹，则在该文件夹下创建同名文件
             if os.path.isdir(self.save_path) or not os.path.splitext(self.save_path)[1]:
                 os.makedirs(self.save_path, exist_ok=True)
                 final_dest = os.path.join(self.save_path, file_name)
             else:
-                # 如果 save_path 包含文件名，则直接使用
+                # 如果 save_dir_path 包含文件名，则直接使用
                 os.makedirs(os.path.dirname(self.save_path), exist_ok=True)
                 final_dest = self.save_path
 
@@ -40,4 +40,4 @@ class Download:
 
         except Exception as e:
             print(f"URL: {self.target_url}, 错误: {e}")
-            print(f"下载过程中出错: {e}")
+            raise  # 重新抛出异常，让上层 GetConfig 知道失败了
